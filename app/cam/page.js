@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react';
 import Image from "next/image";
-// import TopLogoAmero from "../components/TopLogoAmero";
 // import { Poppins} from "next/font/google";
 // const poppins = Poppins({ subsets: ["latin"], weight: ['400','700', '900'] });
+import { getCookie } from 'cookies-next';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -33,6 +33,11 @@ export default function Cam() {
     // const waktuBatasTake = useRef(null);
     const videoRef = useRef(null);
     const previewRef = useRef(null);
+
+    const [payload, setPayload] = useState({
+      stasiun: getCookie('stasiun'),
+      stasiunName: getCookie('stasiunName'),
+    });
 
     useWebcam({ videoRef,previewRef});
 
@@ -103,9 +108,22 @@ export default function Cam() {
 
     const retake = () => {
         setEnabled(false)
+        gtag('event', 'ClickButton', {
+            event_category: 'Button',
+            event_label: 'Retake - '+payload.stasiunName,
+            event_action: 'Next'
+        })
+    }
+
+    const generate = () => {
+        gtag('event', 'ClickButton', {
+            event_category: 'Button',
+            event_label: 'TakePhoto - '+payload.stasiunName,
+            event_action: 'Next'
+        })
     }
     return (
-        <main className="flex fixed h-full w-full bg-kai2 overflow-auto flex-col justify-center items-center py-16 px-20">
+        <main className="flex fixed h-full w-full bg-kai2 overflow-auto flex-col justify-center items-center py-16 px-20" onContextMenu={(e)=> e.preventDefault()}>
             <div className='fixed top-14 w-[65%]'>
                 <Image src='/title-take.png' width={823} height={221} alt='Zirolu' className='w-full' priority />
             </div>
@@ -143,8 +161,8 @@ export default function Cam() {
             }
             <div className={`fixed left-0 bottom-14 w-full ${!enabled ? 'hidden' : ''}`}>
                 <div className="relative w-[80%] mx-auto flex justify-center items-center flex-col">
-                    <Link href='/generate' className="w-full relative mx-auto flex justify-center items-center">
-                        <Image src='/btn-suprise.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
+                    <Link href='/generate' className="w-full relative mx-auto flex justify-center items-center" onClick={generate}>
+                        <Image src='/btn-next.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
                     </Link>
                     <button className="relative w-full mx-auto flex justify-center items-center" onClick={retake}>
                         <Image src='/btn-retake.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
