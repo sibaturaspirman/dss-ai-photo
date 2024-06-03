@@ -1,0 +1,10 @@
+{
+  "/not-found": "app/not-found.js",
+  "/v2/generate/page": "app/v2/generate/page.js",
+  "/v2/cam/page": "app/v2/cam/page.js",
+  "/v2/page": "app/v2/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/v2/home/page": "app/v2/home/page.js",
+  "/api/fal/proxy/route": "app/api/fal/proxy/route.js"
+}
