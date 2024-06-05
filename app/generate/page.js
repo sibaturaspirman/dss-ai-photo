@@ -184,7 +184,7 @@ export default function GenerateAmero() {
                             <Image src='/title-front.png' width={773} height={158} alt='Zirolu' className='w-full' priority />
                         </div>
                     </div>
-                    <div className='animate-upDownCepet relative p-8 mt-14 mb-10 text-4xl border-2 border-[#b1454a] text-center bg-[#EAC46D] text-[#fff] font-bold rounded-lg'>
+                    <div className='animate-upDownCepet relative p-8 mt-14 mb-10 text-4xl border-2 border-[#b1454a] text-center bg-[#EAC46D] text-[#000] font-bold rounded-lg'>
                         <p>{`Please wait, loading...`}</p>
                         <p>{`Process : ${(elapsedTime / 1000).toFixed(2)} seconds (${numProses} of 2)`}</p>
                         {error}
