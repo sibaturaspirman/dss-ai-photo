@@ -158,18 +158,18 @@ export default function Result() {
                     </div>
                 </div> */}
                 <div className='absolute top-0 left-0  w-full' ref={(el) => (componentRef = el)}>
-                    <div className={`relative w-[99.2%] flex`}>
-                        <Image src={imageResultAI}  width={630} height={1120} alt='Zirolu' className='relative block w-full'></Image>
+                    <div className={`relative w-[99%] flex`}>
+                        <Image src={imageResultAI}  width={683} height={1024} alt='Zirolu' className='relative block w-full'></Image>
                     </div>
                 </div>
             </div>
             }
 
-            <div className={generateQR ? `opacity-0 pointer-events-none` : ''}>
+            <div className={generateQR ? `opacity-0 pointer-events-none w-full` : 'w-full'}>
                 {imageResultAI && 
-                <div className='relative w-[80%] mt-10 mx-auto flex justify-center items-center rounded-sm' onClick={downloadImageAI}>
+                <div className='relative w-[90%] mt-10 mx-auto flex justify-center items-center rounded-sm' onClick={downloadImageAI}>
                     <div className='relative w-full'>
-                        <Image src={imageResultAI}  width={630} height={1120} alt='Zirolu' className='relative block w-full'></Image>
+                        <Image src={imageResultAI}  width={683} height={1024} alt='Zirolu' className='relative block w-full'></Image>
                     </div>
                 </div>
                 }
