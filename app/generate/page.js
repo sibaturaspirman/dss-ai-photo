@@ -119,7 +119,7 @@ export default function GenerateAmero() {
 
     const generateImageSwap = async (gender, number) => {
         const urlGambar = 'https://ai-dss.antigravity.id/style/'+gender+'-'+number+'.jpeg'
-        console.log(urlGambar)
+        // console.log(urlGambar)
         setNumProses(2)
         reset2();
         // @snippet:start("client.queue.subscribe")
