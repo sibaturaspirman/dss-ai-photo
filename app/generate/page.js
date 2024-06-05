@@ -57,13 +57,13 @@ export default function GenerateAmero() {
     const generateAI = () => {
         setNumProses1(true)
         
-        if(styleGender =='m'){
+        if(styleGender =='male'){
             setTimeout(() => {
-                generateImageSwap(styleGender, getRandomInt(1, 4))
+                generateImageSwap(styleGender, getRandomInt(1, 5))
             }, 500);
-        }else if(styleGender =='f'){
+        }else if(styleGender =='female'){
             setTimeout(() => {
-                generateImageSwap(styleGender, getRandomInt(1, 6))
+                generateImageSwap(styleGender, getRandomInt(1, 5))
             }, 500);
         }
 
@@ -175,28 +175,24 @@ export default function GenerateAmero() {
         <main className="flex fixed h-full w-full bg overflow-auto flex-col justify-center items-center py-16 px-20" onContextMenu={(e)=> e.preventDefault()}>
             {numProses1 && 
                 <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center flex-col'>
-                    <div className='relative w-[80%] overflow-hidden'>
+                    <div className='relative w-[60%] overflow-hidden'>
                         <div className='relative w-full'>
-                            <Image src='/explore.png' width={773} height={158} alt='Zirolu' className='w-full' priority />
+                            <Image src='/title-front.png' width={773} height={158} alt='Zirolu' className='w-full' priority />
                         </div>
                     </div>
-                    <div className='animate-upDownCepet relative p-8 mt-8 mb-10 text-4xl border-2 border-[#b1454a] text-center bg-[#CF1F29] text-[#fff] font-bold rounded-lg'>
+                    <div className='animate-upDownCepet relative p-8 mt-14 mb-10 text-4xl border-2 border-[#b1454a] text-center bg-[#EAC46D] text-[#fff] font-bold rounded-lg'>
                         <p>{`Please wait, loading...`}</p>
                         <p>{`Process : ${(elapsedTime / 1000).toFixed(2)} seconds (${numProses} of 2)`}</p>
                         {error}
                     </div>
 
-                    <pre className='relative p-5 mt-14 border-2 border-[#b1454a] text-left bg-[#CF1F29] text-[#fff] text-3xl overflow-auto no-scrollbar h-[250px] w-[60%] mx-auto rounded-lg hidden'>
+                    <pre className='relative p-5 mt-14 border-2 border-[#b1454a] text-left bg-[#EAC46D] text-[#fff] text-3xl overflow-auto no-scrollbar h-[250px] w-[60%] mx-auto rounded-lg hidden'>
                         <code>
                         {logs.filter(Boolean).join('\n')}
                         </code>
                         AI generate face... <br></br>
                         Loading model..<br></br>
                     </pre>
-
-                    <div className='w-full flex items-center justify-center'>
-                        <ReactPlayer url={['/videoLoading.mp4']}  playing={playVideo} loop width={555} height={1174} />
-                    </div>
                 </div>
             }
             {/* LOADING */}
