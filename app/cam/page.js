@@ -123,8 +123,8 @@ export default function Cam() {
         })
     }
     return (
-        <main className="flex fixed h-full w-full bg-kai2 overflow-auto flex-col justify-center items-center py-16 px-20" onContextMenu={(e)=> e.preventDefault()}>
-            <div className='fixed top-14 w-[65%]'>
+        <main className="flex fixed h-full w-full bg overflow-auto flex-col justify-center items-center py-16 px-20" onContextMenu={(e)=> e.preventDefault()}>
+            <div className='fixed top-24 w-[55%]'>
                 <Image src='/title-take.png' width={823} height={221} alt='Zirolu' className='w-full' priority />
             </div>
             <div className="relative w-full flex flex-col justify-center items-center mt-[-12vh]">
@@ -153,18 +153,21 @@ export default function Cam() {
 
 
             {!enabled && 
-                <div className="fixed left-0 bottom-14 w-full flex justify-center items-center">
-                    <button className="relative mx-auto flex  w-[80%] justify-center items-center" onClick={captureVideo}>
+                <div className="fixed left-0 bottom-20 w-full flex justify-center items-center flex-col">
+                    <button className="relative mx-auto flex w-[60%] justify-center items-center" onClick={captureVideo}>
                         <Image src='/btn-capture.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
                     </button>
+                    <Link href='/' className="relative w-[70%] mx-auto flex justify-center items-center">
+                        <Image src='/btn-back.png' width={772} height={135} alt='Zirolu' className='w-full' priority />
+                    </Link>
                 </div>
             }
             <div className={`fixed left-0 bottom-14 w-full ${!enabled ? 'hidden' : ''}`}>
-                <div className="relative w-[80%] mx-auto flex justify-center items-center flex-col">
+                <div className="relative w-[60%] mx-auto flex justify-center items-center flex-col">
                     <Link href='/generate' className="w-full relative mx-auto flex justify-center items-center" onClick={generate}>
-                        <Image src='/btn-next.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
+                        <Image src='/btn-continue.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
                     </Link>
-                    <button className="relative w-full mx-auto flex justify-center items-center" onClick={retake}>
+                    <button className="relative w-full mx-auto flex justify-center items-center pt-10" onClick={retake}>
                         <Image src='/btn-retake.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
                     </button>
                 </div>
