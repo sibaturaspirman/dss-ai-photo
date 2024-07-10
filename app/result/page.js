@@ -182,12 +182,12 @@ export default function Result() {
                     <div className={`w-full`}>
                         <div className={`w-full mt-14`}>
                             <div className="relative w-[80%] mx-auto flex justify-center items-center flex-col">
-                                {/* <div className="w-full relative mx-auto flex justify-center items-center" onClick={downloadImageAI}>
+                                <div className="w-full relative mx-auto flex justify-center items-center" onClick={downloadImageAI}>
                                     <Image src='/btn-collect.png' width={480} height={96} alt='Zirolu' className='w-full' priority />
-                                </div> */}
+                                </div>
 
 
-                                <div className={`w-full`} onClick={downloadImageAI}>
+                                {/* <div className={`w-full`} onClick={downloadImageAI}>
                                 <ReactToPrint
                                 trigger={() => 
                                     <div className={`w-full`}>
@@ -198,7 +198,7 @@ export default function Result() {
                                 }
                                 content={() => componentRef}
                                 />
-                                </div> 
+                                </div>  */}
 
                                 <Link href='/' className="relative w-full mx-auto flex justify-center items-center" onClick={backHome}>
                                     <Image src='/btn-back.png' width={772} height={135} alt='Zirolu' className='w-full' priority />

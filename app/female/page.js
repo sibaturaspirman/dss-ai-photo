@@ -55,23 +55,21 @@ export default function GenerateAmero() {
     }, [imageFile])
 
     const generateAI = () => {
+        setNumProses1(true)
+        
         if(styleGender =='male'){
-            setNumProses1(true)    
             setTimeout(() => {
                 generateImageSwap(styleGender, getRandomInt(1, 5))
             }, 500);
         }else if(styleGender =='female'){
-            router.push('/female');
-            // setTimeout(() => {
-            //     generateImageSwap(styleGender, getRandomInt(1, 5))
-            // }, 500);
+            setTimeout(() => {
+                generateImageSwap(styleGender, getRandomInt(1, 5))
+            }, 500);
+        }else if(styleGender =='hijab'){
+            setTimeout(() => {
+                generateImageSwap(styleGender, getRandomInt(1, 5))
+            }, 500);
         }
-        
-        // else if(styleGender =='hijab'){
-        //     setTimeout(() => {
-        //         generateImageSwap(styleGender, getRandomInt(1, 5))
-        //     }, 500);
-        // }
 
     }
 
@@ -209,13 +207,13 @@ export default function GenerateAmero() {
             <div className={`relative w-full ${numProses1 ? 'opacity-0 pointer-events-none' : ''}`}>
                 <div className='relative mt-[-12vh] w-full'>
                     <div className='relative w-full hiddenx'>
-                        <div className='relative w-[60%] mb-12 mx-auto'>
+                        {/* <div className='relative w-[60%] mb-12 mx-auto'>
                             <Image src='/title-identity.png' width={542} height={119} alt='Zirolu' className='w-full' priority />
-                        </div>
+                        </div> */}
                         <div className='w-[72%] mx-auto'>
                             {/* GENDER FIX */}
                             <ul className='choose mod6'>
-                                <li className='mb-10'>
+                                {/* <li className='mb-10'>
                                     <input
                                     id='choose_gender1'
                                     type="radio"
@@ -233,7 +231,7 @@ export default function GenerateAmero() {
                                             priority
                                         />
                                     </label>
-                                </li>
+                                </li> */}
                                 <li className='mb-10'>
                                     <input
                                     id='choose_gender2'
@@ -245,7 +243,7 @@ export default function GenerateAmero() {
                                     <label htmlFor="choose_gender2">
                                         <Image
                                             className="relative h-auto w-full"
-                                            src="/gender-female.png"
+                                            src="/female-1.png"
                                             alt="icon"
                                             width={541}
                                             height={178}
@@ -253,7 +251,7 @@ export default function GenerateAmero() {
                                         />
                                     </label>
                                 </li>
-                                {/* <li>
+                                <li>
                                     <input
                                     id='choose_gender3'
                                     type="radio"
@@ -264,14 +262,14 @@ export default function GenerateAmero() {
                                     <label htmlFor="choose_gender3">
                                         <Image
                                             className="relative h-auto w-full"
-                                            src="/gender-hijab.png"
+                                            src="/female-2.png"
                                             alt="icon"
                                             width={541}
                                             height={178}
                                             priority
                                         />
                                     </label>
-                                </li> */}
+                                </li>
                             </ul>
                         </div>
                     </div>
