@@ -181,14 +181,14 @@ export default function GenerateAmero() {
         <main className="flex fixed h-full w-full bg overflow-auto flex-col justify-center items-center py-16 px-20" onContextMenu={(e)=> e.preventDefault()}>
             {numProses1 && 
                 <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center flex-col'>
-                    <div className='relative w-[60%] overflow-hidden'>
+                    {/* <div className='relative w-[60%] overflow-hidden'>
                         <div className='relative w-full'>
                             <Image src='/title-front.png' width={773} height={158} alt='Zirolu' className='w-full' priority />
                         </div>
-                    </div>
+                    </div> */}
                     <div className='animate-upDownCepet relative p-8 mt-14 mb-10 text-4xl border-2 border-[#b1454a] text-center bg-[#EAC46D] text-[#000] font-bold rounded-lg'>
-                        <p>{`Please wait, loading...`}</p>
-                        <p>{`Process : ${(elapsedTime / 1000).toFixed(2)} seconds (${numProses} of 2)`}</p>
+                        <p>{`Mohon tunggu...`}</p>
+                        <p>{`AI memproses : ${(elapsedTime / 1000).toFixed(2)} detik (${numProses} dari 2)`}</p>
                         {error}
                     </div>
 
@@ -203,9 +203,9 @@ export default function GenerateAmero() {
             }
             {/* LOADING */}
             {/* PILIH STYLE */}
-            <div className={`fixed top-24 w-[60%] ${numProses1 ? 'opacity-0 pointer-events-none' : ''}`}>
+            {/* <div className={`fixed top-24 w-[60%] ${numProses1 ? 'opacity-0 pointer-events-none' : ''}`}>
                 <Image src='/title-select.png' width={686} height={112} alt='Zirolu' className='w-full' priority />
-            </div>
+            </div> */}
             <div className={`relative w-full ${numProses1 ? 'opacity-0 pointer-events-none' : ''}`}>
                 <div className='relative mt-[-12vh] w-full'>
                     <div className='relative w-full hiddenx'>
@@ -279,7 +279,7 @@ export default function GenerateAmero() {
                 <div className={`fixed left-0 bottom-14 w-full`}>
                     <div className="relative w-[80%] mx-auto flex justify-center items-center flex-col">
                         <button className={`w-full relative mx-auto flex justify-center items-center ${!styleGender ? 'hidden' : ''}`} onClick={generateAI}>
-                            <Image src='/btn-suprise.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
+                            <Image src='/btn-continue.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
                         </button>
                         <Link href='' className="relative w-full mx-auto flex justify-center items-center">
                             <Image src='/btn-back.png' width={772} height={135} alt='Zirolu' className='w-full' priority />
