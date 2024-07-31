@@ -156,17 +156,46 @@ export default function GenerateAmero() {
         // emitStrsing("sendImage", result.image.url);
 
         toDataURL(FACE_URL_RESULT)
-        .then(dataUrl => {
+        .then(async dataUrl => {
             // console.log('RESULT:', dataUrl)
 
             if (typeof localStorage !== 'undefined') {
                 localStorage.setItem("resulAIBase64", dataUrl)
                 localStorage.setItem("faceURLResult", FACE_URL_RESULT)
             }
+
+            const options = {
+                method: 'POST',
+                body: JSON.stringify({
+                    name:'DSS SBY - '+styleGender,
+                    phone:'0004',
+                    image:FACE_URL_RESULT
+                }),
+                headers: {
+                    'Authorization': 'de2e0cc3-65da-48a4-8473-484f29386d61:xZC8Zo4DAWR5Yh6Lrq4QE3aaRYJl9lss',
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            };
+            
+            await fetch('https://photo-ai-iims.zirolu.id/v1/pln', options)
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response)
+                    router.push('/result');
+                    // setLinkQR(response.file)
+                    // emitString("sendImage", response.file);
+                    // setIdFormEmail(response.id)
+                    // setGenerateQR('true')
+                    // setLoadingDownload(null)
+                })
+                .catch(err => {
+                    console.log(err)
+                });
         
-            setTimeout(() => {
-                router.push('/result');
-            }, 500);
+            // setTimeout(() => {
+            //     router.push('/result');
+            // }, 500);
         })
         } catch (error) {
             setError(error);
