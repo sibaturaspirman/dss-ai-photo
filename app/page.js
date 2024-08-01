@@ -9,7 +9,7 @@ export default function Home() {
       </div> */}
       <div className="relative w-full flex justify-center items-center mt-20 mb-20">
         <div className='animate-upDown relative w-full mx-auto flex justify-center items-center pointer-events-none'>
-          <Image src='/front.png' width={1001} height={967} alt='Zirolu' className='w-full' priority />
+          <Image src='/front2.png' width={1001} height={967} alt='Zirolu' className='w-full' priority />
         </div>
       </div>
       <div className="relative w-full flex justify-center items-center">
