@@ -138,13 +138,13 @@ export default function Cam() {
                     }
 
                     {!enabled && 
-                    <div className='w-[67%] mx-auto absolute left-0 right-0 bottom-0 z-10'>
+                    <div className='w-[65%] mx-auto absolute left-0 right-0 bottom-0 z-10'>
                         <Image src='/frame-pose.png' width={426} height={461} alt='Zirolu' className='w-full' priority />
                     </div>
                     }
 
-                    <video ref={videoRef} className={`w-[67%] lg:w-full mx-auto border-2 border-[#ffffff] rounded-sm ${enabled ? 'absolute opacity-0':'relative'}`} playsInline height={512}></video>
-                    <canvas ref={previewRef} width="512" height="512" className={`${enabled ? 'relative':'absolute opacity-0'} w-[67%] lg:w-full top-0 left-0 right-0 mx-auto pointer-events-nones border-2 border-[#ffffff] rounded-sm`}></canvas>
+                    <video ref={videoRef} className={`w-[100%] lg:w-full mx-auto border-2 border-[#ffffff] rounded-sm ${enabled ? 'absolute opacity-0':'relative'}`} playsInline height={512}></video>
+                    <canvas ref={previewRef} width="512" height="512" className={`${enabled ? 'relative':'absolute opacity-0'} w-[100%] lg:w-full top-0 left-0 right-0 mx-auto pointer-events-nones border-2 border-[#ffffff] rounded-sm`}></canvas>
                 </div>
                 {!enabled && 
                     <p className='block text-center text-xl lg:text-4xl mt-1 mb-3 lg:mt-4 text-white'>*Ikuti garis pose dan tidak terlalu zoom</p> 
