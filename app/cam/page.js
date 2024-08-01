@@ -28,6 +28,7 @@ export default function Cam() {
     const router = useRouter();
     const [enabled, setEnabled] = useState(false);
     const [captured, setCaptured] = useState(false);
+    const [capturedAwal, setCapturedAwal] = useState(false);
     // const [countDown, setCoundown] = useState(5);
     // const [counter, setCounter] = useState(60);
     // const waktuBatasTake = useRef(null);
@@ -46,6 +47,7 @@ export default function Cam() {
         height = 512,
     }) => {
         setCaptured(true)
+        setCapturedAwal(true)
         setTimeout(() => {
             setEnabled(true)
             setCaptured(null)
@@ -108,6 +110,7 @@ export default function Cam() {
 
     const retake = () => {
         setEnabled(false)
+        setCapturedAwal(false)
         gtag('event', 'ClickButton', {
             event_category: 'Button',
             event_label: 'Retake - '+payload.stasiunName,
@@ -154,7 +157,7 @@ export default function Cam() {
 
             {!enabled && 
                 <div className="fixed left-0 bottom-20 w-full flex justify-center items-center flex-col">
-                    <button className="relative mx-auto flex w-[60%] justify-center items-center" onClick={captureVideo}>
+                    <button className={`relative mx-auto flex w-[60%] justify-center items-center  ${capturedAwal ? 'hidden' : ''}`} onClick={captureVideo}>
                         <Image src='/btn-capture.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
                     </button>
                     <Link href='/' className="relative w-[70%] mx-auto flex justify-center items-center">
@@ -162,7 +165,7 @@ export default function Cam() {
                     </Link>
                 </div>
             }
-            <div className={`fixed left-0 bottom-14 w-full ${!enabled ? 'hidden' : ''}`}>
+            <div className={`fixed left-0 bottom-20 w-full ${!enabled ? 'hidden' : ''}`}>
                 <div className="relative w-[60%] mx-auto flex justify-center items-center flex-col">
                     <Link href='/generate' className="w-full relative mx-auto flex justify-center items-center" onClick={generate}>
                         <Image src='/btn-continue.png' width={830} height={192} alt='Zirolu' className='w-full' priority />
