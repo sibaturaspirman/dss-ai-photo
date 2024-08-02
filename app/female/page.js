@@ -40,7 +40,7 @@ export default function GenerateAmero() {
     const [numProses1, setNumProses1] = useState(null);
     // Result state
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(true);
     const [result, setResult] = useState(null);
     const [resultFaceSwap, setResultFaceSwap] = useState(null);
     const [logs, setLogs] = useState([]);
@@ -94,7 +94,7 @@ export default function GenerateAmero() {
     
     const reset = () => {
       setLoading(false);
-      setError(null);
+      setError(true);
       setResult(null);
       setResultFaceSwap(null);
       setLogs([]);
@@ -102,7 +102,7 @@ export default function GenerateAmero() {
     };
     const reset2 = () => {
       setLoading(false);
-      setError(null);
+      setError(true);
       // setLogs([]);
       setElapsedTime(0);
     };
@@ -192,7 +192,7 @@ export default function GenerateAmero() {
                 });
         })
         } catch (error) {
-            setError(error);
+            setError(false);
         } finally {
             setLoading(false);
             setElapsedTime(Date.now() - start);
@@ -202,6 +202,11 @@ export default function GenerateAmero() {
 
     return (
         <main className="flex fixed h-full w-full bg overflow-auto flex-col justify-center items-center py-16 px-20" onContextMenu={(e)=> e.preventDefault()}>
+            <div className={`fixed top-0 left-0 w-full h-full bg flex items-center justify-center z-50 ${error ? 'hidden' : ''}`}>
+                <a href='/' className='relative w-[80%] mx-auto flex justify-center items-center'>
+                    <Image src='/error.png' width={654} height={544} alt='Zirolu' className='w-full' priority />
+                </a>
+            </div>
             {numProses1 && 
                 <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center flex-col'>
                     {/* <div className='relative w-[60%] overflow-hidden'>
